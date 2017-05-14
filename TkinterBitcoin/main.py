@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 
 
 LARGE_FONT = ('Verdana', 12)
@@ -8,6 +9,10 @@ class SeaofBTCapp(tk.Tk):
 
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
+
+        tk.Tk.iconbitmap(self, default='icon.ico')
+        tk.Tk.wm_title(self, 'Sea of BTC client')
+
         container = tk.Frame(self)
         container.pack(side='top', fill='both', expand=True)
         container.grid_rowconfigure(0, weight=1)
@@ -34,13 +39,13 @@ class StartPage(tk.Frame):
         label = tk.Label(self, text='Start Page', font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
-        button1 = tk.Button(
+        button1 = ttk.Button(
             self, 
             text='Visit Page 1', 
             command=lambda: controller.show_frame(PageOne)
         )
         button1.pack()
-        button2 = tk.Button(
+        button2 = ttk.Button(
             self,
             text='Visit Page 2',
             command=lambda: controller.show_frame(PageTwo)
@@ -55,14 +60,14 @@ class PageOne(tk.Frame):
         label = tk.Label(self, text='Page One', font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
-        button1 = tk.Button(
+        button1 = ttk.Button(
             self,
             text='Back to Home',
             command=lambda: controller.show_frame(StartPage)
         )
         button1.pack()
 
-        button2 = tk.Button(
+        button2 = ttk.Button(
             self,
             text='Visit Page 2',
             command=lambda: controller.show_frame(PageTwo)
@@ -77,14 +82,14 @@ class PageTwo(tk.Frame):
         label = tk.Label(self, text='Page Two', font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
-        button1 = tk.Button(
+        button1 = ttk.Button(
             self,
             text='Back to Home',
             command=lambda: controller.show_frame(StartPage)
         )
         button1.pack()
 
-        button2 = tk.Button(
+        button2 = ttk.Button(
             self,
             text='Visit Page 1',
             command=lambda: controller.show_frame(PageOne)
